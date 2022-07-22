@@ -3,21 +3,22 @@ const show_score = document.getElementById("show_score")
 const colors_inpt = document.querySelectorAll("main .guess_color")
 
 document.addEventListener("keydown", function (event) {         
-    if (event.key == 13) {          
+    if (event.code == "Enter") {          
         event.preventDefault()
+        if(colors_inpt[0] === document.activeElement){
+            colors_inpt[1].focus()
+        }else if(colors_inpt[1] === document.activeElement){
+            colors_inpt[2].focus()
+        }else if(colors_inpt[2] === document.activeElement){
+            colors_inpt[0].focus()
+    
+            Game.checkValues()
+        }else{
+            colors_inpt[0].focus()
+        }
     }
     
-    if(colors_inpt[0] === document.activeElement){
-        colors_inpt[1].focus()
-    }else if(colors_inpt[1] === document.activeElement){
-        colors_inpt[2].focus()
-    }else if(colors_inpt[2] === document.activeElement){
-        colors_inpt[0].focus()
-
-        Game.checkValues()
-    }else{
-        colors_inpt[0].focus()
-    }
+    
 
 })
 
@@ -45,7 +46,7 @@ let Game = {
             score = "u won les go!"
         }else{
 
-            score = "Wrong  <br> " + this.R + " " + this.G + " " + this.B
+            score = "WRONG!  <br> <span>" + this.R + " " + this.G + " " + this.B + "</span>"
 
 
         }
