@@ -8,16 +8,12 @@ colors_inpt[1].addEventListener("keydown", function (event) {
         z = 1
         colors_inpt[0].focus()
     }
-
 })
-
 colors_inpt[2].addEventListener("keydown", function (event) {
     if (this.value.length == 0 && event.code == "Backspace") { 
         colors_inpt[1].focus()
     }
-
 })
-
 
 document.addEventListener("keydown", function (event) {             //eo enter-owe rzeczy  
     if (event.code == "Enter") {          
@@ -38,9 +34,6 @@ document.addEventListener("keydown", function (event) {             //eo enter-o
             colors_inpt[0].focus()
         }
     }
-    
-    
-
 })
 
 let Game = {
@@ -70,6 +63,7 @@ let Game = {
         let r = parseInt(colors_inpt[0].value)
         let g = parseInt(colors_inpt[1].value)
         let b = parseInt(colors_inpt[2].value)
+        
         if (r == this.R && g == this.G && b == this.B) {
             score = "u won les go!"
         }else{
