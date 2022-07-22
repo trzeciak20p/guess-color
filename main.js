@@ -3,12 +3,25 @@ const show_score = document.getElementById("show_score")
 const colors_inpt = document.querySelectorAll("main .guess_color")
 let score_showed = false
 
+colors_inpt[1].addEventListener("keydown", function (event) {
+    if (this.value.length == 0 && event.code == "Backspace") { 
+        z = 1
+        colors_inpt[0].focus()
+    }
 
-document.addEventListener("keydown", function (event) {         
+})
+
+colors_inpt[2].addEventListener("keydown", function (event) {
+    if (this.value.length == 0 && event.code == "Backspace") { 
+        colors_inpt[1].focus()
+    }
+
+})
+
+
+document.addEventListener("keydown", function (event) {             //eo enter-owe rzeczy  
     if (event.code == "Enter") {          
         event.preventDefault()
-
-        
 
         if(colors_inpt[0] === document.activeElement){
             colors_inpt[1].focus()
@@ -76,3 +89,4 @@ let Game = {
 }
 
 Game.newGame()
+colors_inpt[0].focus()
