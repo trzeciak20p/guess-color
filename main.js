@@ -1,18 +1,26 @@
 const bg = document.body
 const show_score = document.getElementById("show_score")
 const colors_inpt = document.querySelectorAll("main .guess_color")
+let score_showed = false
+
 
 document.addEventListener("keydown", function (event) {         
     if (event.code == "Enter") {          
         event.preventDefault()
+
+        
+
         if(colors_inpt[0] === document.activeElement){
             colors_inpt[1].focus()
         }else if(colors_inpt[1] === document.activeElement){
             colors_inpt[2].focus()
         }else if(colors_inpt[2] === document.activeElement){
-            colors_inpt[0].focus()
-    
-            Game.checkValues()
+            if(score_showed){
+                Game.newGame()
+            }else{
+                score_showed = true
+                Game.checkValues()
+            }
         }else{
             colors_inpt[0].focus()
         }
@@ -31,14 +39,16 @@ let Game = {
     },
 
     newGame: function(){
-        this.newValues()        //losowanie nowych wartości
-        bg.style.backgroundColor = "rgb(" + this.R + ", " + this.G + ", " + this.B +")"     //ustawianie koloru tła
-        // console.log(this.R, this.G, this.B)
-
+        show_score.innerHTML = null
+        score_showed = false
         for(i = 0; i < 3; i++){
             colors_inpt[i].value = null
         }
         colors_inpt[0].focus()      //focus na input
+
+        this.newValues()        //losowanie nowych wartości
+        bg.style.backgroundColor = "rgb(" + this.R + ", " + this.G + ", " + this.B +")"     //ustawianie koloru tła
+        // console.log(this.R, this.G, this.B)
 
     },
 
@@ -61,7 +71,6 @@ let Game = {
 
         show_score.innerHTML = score
 
-        this.newGame()
     }
 
 }
