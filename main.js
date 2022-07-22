@@ -31,9 +31,14 @@ let Game = {
     },
 
     newGame: function(){
-        this.newValues()
-        bg.style.backgroundColor = "rgb(" + this.R + ", " + this.G + ", " + this.B +")"
-        console.log(this.R, this.G, this.B)
+        this.newValues()        //losowanie nowych wartości
+        bg.style.backgroundColor = "rgb(" + this.R + ", " + this.G + ", " + this.B +")"     //ustawianie koloru tła
+        // console.log(this.R, this.G, this.B)
+
+        for(i = 0; i < 3; i++){
+            colors_inpt[i].value = null
+        }
+        colors_inpt[0].focus()      //focus na input
 
     },
 

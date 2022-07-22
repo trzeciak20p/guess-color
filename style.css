@@ -28,7 +28,7 @@ main .ae{
 }
 main #show_score{
     min-height: 90px;
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
 }
 main #show_score span{
