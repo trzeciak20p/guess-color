@@ -43,12 +43,19 @@ let Game = {
         let b = parseInt(colors_inpt[2].value)
         if (r == this.R && g == this.G && b == this.B) {
             score = "u won les go!"
+        }else{
+
+            score = "Wrong  <br> " + this.R + " " + this.G + " " + this.B
+
+
         }
 
 
 
 
-        show_score.innerText = score
+        show_score.innerHTML = score
+
+        this.newGame()
     }
 
 }
