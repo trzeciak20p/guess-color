@@ -71,7 +71,7 @@ let Game = {
 
         this.newValues()        //losowanie nowych wartości
         bg.style.backgroundColor = "rgb(" + this.R + ", " + this.G + ", " + this.B +")"     //ustawianie koloru tła
-        console.log(this.R, this.G, this.B)
+        // console.log(this.R, this.G, this.B)
 
     },
 
