@@ -1,6 +1,15 @@
 const bg = document.body
 const show_score = document.getElementById("show_score")
 const colors_inpt = document.querySelectorAll("main .guess_color")
+document.getElementById("submit_button").addEventListener("click", () => {   
+    if(score_showed){
+        Game.newGame()
+    }else{
+        score_showed = true
+        Game.checkValues()
+    }
+})
+
 let score_showed = false
 
 colors_inpt[1].addEventListener("keydown", function (event) {
@@ -54,7 +63,7 @@ let Game = {
 
         this.newValues()        //losowanie nowych wartości
         bg.style.backgroundColor = "rgb(" + this.R + ", " + this.G + ", " + this.B +")"     //ustawianie koloru tła
-        // console.log(this.R, this.G, this.B)
+        console.log(this.R, this.G, this.B)
 
     },
 
@@ -66,15 +75,11 @@ let Game = {
         
         if (r == this.R && g == this.G && b == this.B) {
             score = "u won les go!"
+        }else if( (r <= 255 && r > 0 && g <= 255 && g > 0 && b <= 255 && b > 0) && (r-10 <= this.R && r+10 >= this.R) && (g-10 <= this.G && g+10 >= this.G) && (b-10 <= this.B && b+10 >= this.B)){
+            score = "SO CLOSE! <br> <span>" + this.R + " " + this.G + " " + this.B + "</span>" 
         }else{
-
             score = "WRONG!  <br> <span>" + this.R + " " + this.G + " " + this.B + "</span>"
-
-
         }
-
-
-
 
         show_score.innerHTML = score
 
