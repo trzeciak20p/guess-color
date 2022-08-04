@@ -17,13 +17,14 @@ main #guessed_color{
     height: 80px;
     font-size: 40px;
     line-height: 40px;
+    text-align: center;
 }
 main .ae{
     display: flex;
     flex-direction: row;
     padding: 0px;
 }
-.guess_color{
+main .ae.guess_color{
     margin: 0px;
     padding: 0px;
     height: 50px;
