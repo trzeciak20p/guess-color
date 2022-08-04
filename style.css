@@ -24,7 +24,7 @@ main .ae{
     flex-direction: row;
     padding: 0px;
 }
-main .ae.guess_color{
+main .ae .guess_color{
     margin: 0px;
     padding: 0px;
     height: 50px;
