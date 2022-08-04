@@ -1,10 +1,12 @@
 const bg = document.body
 const show_score = document.getElementById("show_score")
 const colors_inpt = document.querySelectorAll("main .guess_color")
-document.getElementById("submit_button").addEventListener("click", () => {   
+const check_button = document.getElementById("submit_button")
+check_button.addEventListener("click", () => {   
     if(score_showed){
         Game.newGame()
     }else{
+        check_button.value = "new game"
         score_showed = true
         Game.checkValues()
     }
@@ -55,6 +57,7 @@ let Game = {
 
     newGame: function(){
         show_score.innerHTML = null
+        check_button.value = "check answer"
         score_showed = false
         for(i = 0; i < 3; i++){
             colors_inpt[i].value = null
