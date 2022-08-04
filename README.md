@@ -1,2 +1,2 @@
-# guess-color
-You can try your skill at guessing the RGB values of shown colors
+# Guess Color
+You can try your skill at guessing the RGB (hex planned for the future) values of shown colors
